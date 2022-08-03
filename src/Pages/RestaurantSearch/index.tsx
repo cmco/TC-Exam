@@ -10,7 +10,8 @@ import {
   LocationsWrapper,
   LocationItem,
   RestaurantSearchWrapper,
-  CardContainer
+  CardContainer,
+  InputWrapper
 } from './style';
 
 interface Shop {
@@ -150,28 +151,30 @@ export function RestaurantSearch(): JSX.Element {
 
   return (
     <RestaurantSearchWrapper>
-      <Input
-        label="Search for a location"
-        type="search"
-        shape={InputShape.Circular}
-        size={InputSize.Regular2}
-        width={Size.XLarge}
-        value={searchQuery}
-        onChange={(event) => handleSearchOnChange(event.target.value)}
-      />
+      <InputWrapper>
+        <Input
+          label="Search for a location"
+          type="search"
+          shape={InputShape.Circular}
+          size={InputSize.Regular2}
+          width={Size.XLarge}
+          value={searchQuery}
+          onChange={(event) => handleSearchOnChange(event.target.value)}
+        />
 
-      <LocationsWrapper>
-        {locationsData !== undefined &&
-          locationsData !== undefined &&
-          locationsData.map((location: LocationData) => (
-            <LocationItem
-              key={`${location.text} ${location.payload.area}`}
-              onClick={() => handleLocationClick(location)}
-            >
-              {location.text} ({capitalize(location.payload.location_type)})
-            </LocationItem>
-          ))}
-      </LocationsWrapper>
+        <LocationsWrapper>
+          {locationsData !== undefined &&
+            locationsData !== undefined &&
+            locationsData.map((location: LocationData) => (
+              <LocationItem
+                key={`${location.text} ${location.payload.area}`}
+                onClick={() => handleLocationClick(location)}
+              >
+                {location.text} ({capitalize(location.payload.location_type)})
+              </LocationItem>
+            ))}
+        </LocationsWrapper>
+      </InputWrapper>
 
       <CardContainer>
         {shops.length !== 0 &&

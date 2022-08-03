@@ -11,10 +11,25 @@ export const RestaurantSearchWrapper = styled(PageWrapper)`
   animation: ${slideUp} ${pageTransitionEasing} 0.5s;
 `;
 
-export const Input = styled(TablekitInput)`
-  width: 50%;
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 20%;
   margin: 16px auto -16px;
-  flex: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 1080px) {
+    width: 40%;
+  }
+`;
+
+export const Input = styled(TablekitInput)`
+  width: 100%;
+  margin: 0 auto;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -22,9 +37,8 @@ export const Input = styled(TablekitInput)`
 `;
 
 export const LocationsWrapper = styled(ItemGroup)`
-  width: 20%;
+  width: 100%;
   margin: 0 auto;
-  flex: 0;
 
   @media (max-width: 768px) {
     width: 100%;
